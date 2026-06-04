@@ -19,6 +19,23 @@ def build():
         "--name", "SiriLike",       # Name of the exe
         "--console",                # Show console window
         "--add-data", "assistant;assistant",  # Include assistant package
+        # Exclude heavy/unnecessary packages that cause build errors
+        "--exclude-module", "tensorflow",
+        "--exclude-module", "torch",
+        "--exclude-module", "keras",
+        "--exclude-module", "numpy",
+        "--exclude-module", "pandas",
+        "--exclude-module", "matplotlib",
+        "--exclude-module", "scipy",
+        "--exclude-module", "sklearn",
+        "--exclude-module", "PIL",
+        "--exclude-module", "cv2",
+        "--exclude-module", "IPython",
+        "--exclude-module", "jupyter",
+        "--exclude-module", "notebook",
+        "--exclude-module", "pytest",
+        "--exclude-module", "setuptools",
+        "--exclude-module", "pkg_resources",
         "main.py"
     ]
 
