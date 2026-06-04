@@ -17,7 +17,7 @@ def build():
         sys.executable, "-m", "PyInstaller",
         "--onefile",                # Single .exe file
         "--name", "SiriLike",       # Name of the exe
-        "--console",                # Show console window
+        "--windowed",               # No console window (clean GUI)
         "--add-data", "assistant;assistant",  # Include assistant package
         # Exclude heavy/unnecessary packages that cause build errors
         "--exclude-module", "tensorflow",
@@ -36,17 +36,17 @@ def build():
         "--exclude-module", "pytest",
         "--exclude-module", "setuptools",
         "--exclude-module", "pkg_resources",
-        "main.py"
+        "main_gui.py"
     ]
 
-    print("\n🔨 Building SiriLike.exe ...\n")
+    print("\n\U0001f528 Building SiriLike.exe (GUI Edition) ...\n")
     result = subprocess.run(cmd)
 
     if result.returncode == 0:
-        print("\n✅ Build successful!")
-        print("📁 Your .exe is at: dist/SiriLike.exe")
+        print("\n\u2705 Build successful!")
+        print("\U0001f4c1 Your .exe is at: dist/SiriLike.exe")
     else:
-        print("\n❌ Build failed. Check the errors above.")
+        print("\n\u274c Build failed. Check the errors above.")
         sys.exit(1)
 
 if __name__ == "__main__":
